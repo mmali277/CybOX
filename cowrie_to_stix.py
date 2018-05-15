@@ -159,7 +159,7 @@ def create_network_connection_observable (ct):
     create_custom_properties(obj, "Host", d[ct]['sensor'])
     return obj
 
-
+#your input file comes here:
 with open('G:\Cyber Security\cybox and stix\logs\cowrie_logs.json',encoding='utf-8') as json_data:
     d = json.load(json_data)
     Obs = Observables()
@@ -198,9 +198,9 @@ for a in d:
        Obs.add(create_download_upload_file_observable(count,hashes,Bol))
     count=count+1
 
-    #writing to files
-f = open('C:\\Users\DELL\Desktop\cowrie_to_cybox.json', 'w')
+    #writing to files, outputfiles come here
+f = open('C:\\Users\DELL\Desktop\cowrie_to_cybox.xml', 'wb')
 #f.write('<?xml version="1."?>')
-f.write(Obs.to_json())
+f.write(Obs.to_xml())
 f.close()
 
